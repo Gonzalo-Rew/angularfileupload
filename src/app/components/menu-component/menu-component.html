@@ -1,0 +1,17 @@
+<header class="navbar">
+  <a class="navbar__brand" href="#inicio" aria-label="Ir al inicio">
+    File Upload
+  </a>
+
+  <nav aria-label="Navegación principal">
+    <ul class="navbar__links">
+      <li><a routerLink="/inicio">Inicio</a></li>
+      <li><a routerLink="/subir-archivo">Subir archivo</a></li>
+      <li><a routerLink="/informes-pdf">Informes PDF</a></li>
+      <li><a routerLink="/equipo">Equipo</a></li>
+      <li><a routerLink="/login">Login</a></li>
+      <li><a routerLink="/subordinados">Subordinados</a></li>
+    </ul>
+    <button (click)="logOut()">Log out</button>
+  </nav>
+</header>

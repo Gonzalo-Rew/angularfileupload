@@ -1,7 +1,15 @@
-<h1>File Upload</h1>
+<h1 id="upload-title">File Upload</h1>
 
-<input
-  type="file"
-  accept="image/*"
-  (change)="onFileSelected($event)"
-/>
+<form #ngForm="ngForm">
+  <label for="fileInput">Selecciona un archivo:</label>
+  <input
+    type="file"
+    id="fileInput"
+    name="file"
+    #cajafile
+  />
+  <button (click)="uploadFile()">Subir archivo</button>
+</form>
+
+<img src="{{ urlFile }}" *ngIf="urlFile" alt="Archivo subido"/>
+<h2>{{mensaje}}</h2>

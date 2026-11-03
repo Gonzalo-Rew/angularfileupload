@@ -1,0 +1,50 @@
+<section class="equipos">
+  <h1>Equipos</h1>
+
+  @if (equipos?.length) {
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Imagen</th>
+            <th>Champions</th>
+            <th>Web</th>
+            <th>Descripción</th>
+            <th>Finalista</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (equipo of equipos; track equipo.idEquipo) {
+            <tr>
+              <td>{{ equipo.idEquipo }}</td>
+              <td>{{ equipo.nombre }}</td>
+              <td>
+                <img
+                  [src]="equipo.imagen"
+                  [alt]="'Escudo de ' + equipo.nombre"
+                  class="equipo-image"
+                />
+              </td>
+              <td>{{ equipo.champions }}</td>
+              <td>
+                <a
+                  [href]="equipo.web"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Visitar web
+                </a>
+              </td>
+              <td>{{ equipo.descripcion }}</td>
+              <td>{{ equipo.finalista }}</td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  } @else {
+    <p class="empty-message">No hay equipos disponibles.</p>
+  }
+</section>

@@ -1,0 +1,49 @@
+<main class="page-container">
+  <header class="page-heading">
+    <p class="page-eyebrow">Estructura de equipo</p>
+    <h1 class="page-title">Subordinados</h1>
+    <p class="page-subtitle">Consulta los empleados que forman parte de tu equipo.</p>
+  </header>
+
+  @if (subordinados.length > 0) {
+    <div class="surface-card team-card">
+      <div class="team-card-header">
+        <div>
+          <h2 class="team-title">Equipo directo</h2>
+          <p class="team-subtitle">Listado de empleados bajo tu supervisión</p>
+        </div>
+        <span class="team-count">{{ subordinados.length }}</span>
+      </div>
+      <div class="table-responsive">
+        <table class="table team-table align-middle mb-0">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Apellido</th>
+              <th scope="col">Oficio</th>
+              <th scope="col">Salario</th>
+              <th scope="col">Director</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (subordinado of subordinados; track subordinado.idEmpleado) {
+              <tr>
+                <td><span class="id-badge">{{ subordinado.idEmpleado }}</span></td>
+                <td class="fw-semibold">{{ subordinado.apellido }}</td>
+                <td>{{ subordinado.oficio }}</td>
+                <td>{{ subordinado.salario }}</td>
+                <td>{{ subordinado.director }}</td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  } @else {
+    <div class="empty-state surface-card" role="status">
+      <div class="empty-icon" aria-hidden="true">—</div>
+      <h2>No hay subordinados disponibles</h2>
+      <p>Cuando tengas empleados asignados, aparecerán en este espacio.</p>
+    </div>
+  }
+</main>

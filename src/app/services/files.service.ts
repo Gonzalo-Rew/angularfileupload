@@ -13,6 +13,9 @@ export class FilesService {
   async postFile(file: File): Promise<any> {
     const request = 'api/TestingFiles';
     let url = this.url + request;
-    return firstValueFrom(this._http.post(url, file));
+    let header = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
+    return firstValueFrom(this._http.post(url, JSON.stringify(file), { headers: header }));
   }
 }
